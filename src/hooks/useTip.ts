@@ -1,30 +1,39 @@
 import { useState } from "react";
-import { calculateTip } from "../utils/calculateTip";
 
-const useCalculateTip = () => {
-  const [tip, setTip] = useState(0);
-  const [bill, setBill] = useState(0);
-  const [people, setPeople] = useState(0);
-
-  const calculate = () => {
-    if (tip === 0 && bill > 0 && people > 0)
-      return calculateTip(bill, tip, people);
-
-    if (tip && bill && people) return calculateTip(bill, tip, people);
-  };
-
-  return { tip, setTip, bill, setBill, people, setPeople, calculate };
+type UesTip = {
+  calculateTip: () => void;
+  reset: () => void;
+  tipAmount: string;
+  total: string;
+  setBill: (bill: number) => void;
+  setTip: (tip: number) => void;
+  setPeople: (people: number) => void;
 };
 
-export default useCalculateTip;
+export function useTip(): UesTip {
+  const [tipAmount, setTipAmount] = useState("0");
+  const [total, setTotal] = useState("0");
 
-function calculateTip(bill: number, tip: number, people: number): string[]{
-  // todo: take bill, tip, and number of people and calculate how much it costs for each person
-  // todo: tip is in percents need to find how much of the total bill it is, then add the tip amount with bill amount and divide it on number of people
-  // todo: tipAmount = (bill * tip) / 100
-  // todo: costPerPerson = (bill + tipAmount) / numPeople
+  const [tip, setTip] = useState(0);
+  const [bill, setBill] = useState(0);
+  const [people, setPeople] = useState(1);
 
-  const tipAmount: number = (bill * tip) / 100;
-  const costPerPerson: number = (bill + tipAmount) / people;
-  return [costPerPerson.toFixed(2), tipAmount.toString()];
+  const calculateTip = () => {
+    const tipAmount: number = (bill * tip) / 100;
+    const tipPerPerson = tipAmount / people;
+    const costPerPerson: number = (bill + tipAmount) / people;
+
+    setTipAmount(tipPerPerson.toFixed(2));
+    setTotal(costPerPerson.toFixed(2));
+  };
+
+  const reset = () => {
+    setTipAmount("0");
+    setTotal("0");
+    setTip(0);
+    setBill(0);
+    setPeople(1);
+  };
+
+  return { calculateTip, reset, tipAmount, total, setBill, setPeople, setTip };
 }
