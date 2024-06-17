@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  min-height: 100svh;
+  display: grid;
+  place-content: center;
+  @apply bg-light-grayish-cyan;
+}
+
+.btn {
+  @apply w-20 m-2  border-white text-center 
+  rounded-[.2em] bg-very-dark-cyan hover:bg-strong-cyan text-white hover:text-very-dark-cyan;
+}
+
+input.btn {
+  @apply text-very-dark-cyan bg-very-light-grayish-cyan placeholder:text-very-dark-cyan focus:outline-strong-cyan focus:hover:bg-white;
+}
+
+.title{
+  @apply col-span-3 text-very-dark-cyan text-sm capitalize
+}
