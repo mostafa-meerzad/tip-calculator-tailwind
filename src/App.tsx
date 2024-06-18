@@ -1,4 +1,4 @@
-import Title from "./Title";
+import Title from "./components/Title";
 import { Input } from "./components/Input";
 import { Output } from "./components/Output";
 
