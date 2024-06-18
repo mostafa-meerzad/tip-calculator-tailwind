@@ -8,11 +8,14 @@ type UesTip = {
   setBill: (bill: number) => void;
   setTip: (tip: number) => void;
   setPeople: (people: number) => void;
+  tip: number;
+  bill: number;
+  people: number;
 };
 
 export function useTip(): UesTip {
-  const [tipAmount, setTipAmount] = useState("0");
-  const [total, setTotal] = useState("0");
+  const [tipAmount, setTipAmount] = useState("0.00");
+  const [total, setTotal] = useState("0.00");
 
   const [tip, setTip] = useState(0);
   const [bill, setBill] = useState(0);
@@ -28,12 +31,23 @@ export function useTip(): UesTip {
   };
 
   const reset = () => {
-    setTipAmount("0");
-    setTotal("0");
+    setTipAmount("0.00");
+    setTotal("0.00");
     setTip(0);
     setBill(0);
     setPeople(1);
   };
 
-  return { calculateTip, reset, tipAmount, total, setBill, setPeople, setTip };
+  return {
+    calculateTip,
+    reset,
+    tipAmount,
+    total,
+    setBill,
+    setPeople,
+    setTip,
+    tip,
+    bill,
+    people,
+  };
 }
