@@ -9,14 +9,32 @@ body {
   @apply bg-light-grayish-cyan;
 }
 
-.btn {
+.btn,
+.customBtn {
   @apply bg-very-dark-cyan text-very-light-grayish-cyan hover:bg-strong-cyan hover:text-very-dark-cyan text-2xl rounded-md p-3 font-bold sm:text-xl sm:p-2 focus:outline-strong-cyan focus:bg-strong-cyan;
+}
+.btn-active {
+  @apply bg-strong-cyan;
 }
 
 .customBtn {
-  @apply text-very-dark-cyan placeholder-very-dark-cyan capitalize  bg-very-light-grayish-cyan hover:bg-strong-cyan hover:text-very-dark-cyan text-2xl rounded-md p-2 font-bold text-right px-6 focus:bg-very-light-grayish-cyan focus:outline-strong-cyan sm:text-xl sm:p-2;
+  @apply placeholder-very-dark-cyan capitalize  bg-very-light-grayish-cyan text-right px-6 focus:bg-very-light-grayish-cyan 
+  text-very-dark-cyan
+  focus:outline-strong-cyan sm:text-xl sm:p-2;
 }
 
 .title {
   @apply my-4 capitalize text-lg text-dark-grayish-cyan sm:text-sm;
 }
+
+.result-wrapper{
+  @apply flex justify-between flex-row  p-2
+}
+.result-title{
+  @apply text-lg text-light-grayish-cyan sm:text-sm capitalize
+}
+.result-sub-title{
+  @apply text-dark-grayish-cyan sm:text-xs}
+
+.result{
+  @apply text-strong-cyan text-4xl}

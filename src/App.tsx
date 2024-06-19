@@ -1,6 +1,9 @@
 import Title from "./components/Title";
-import { Input } from "./components/Input";
-import { Output } from "./components/Output";
+import { TipButtons } from "./components/TipButtons";
+import { BillInput } from "./components/BillInput";
+import { PeopleInput } from "./components/PeopleInput";
+import { Results } from "./components/Results";
+import { TipProvider } from "./context/TipContext";
 
 const App = () => {
   return (
@@ -9,8 +12,14 @@ const App = () => {
         <Title />
       </h1>
       <div className=" flex max-sm:flex-col max-sm:max-w-lg bg-white rounded-3xl p-7 gap-8">
-        <Input />
-        <Output />
+        <TipProvider>
+          <div className="flex flex-col gap-4 w-full max-w-md">
+            <BillInput />
+            <TipButtons />
+            <PeopleInput />
+          </div>
+          <Results />
+        </TipProvider>
       </div>
     </main>
   );
