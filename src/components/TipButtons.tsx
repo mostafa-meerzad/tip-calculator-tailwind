@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import { useTip } from "../context/TipContext";
 
 export const TipButtons = () => {
-  const { setTip, tip } = useTip();
+  const { setTip, tip, calculateTip } = useTip();
 
   const btnContent = [
     { btn: 5 },
@@ -10,6 +11,10 @@ export const TipButtons = () => {
     { btn: 25 },
     { btn: 50 },
   ];
+
+  useEffect(() => {
+    if (tip > 0) calculateTip();
+  }, [tip]);
 
   return (
     <div>

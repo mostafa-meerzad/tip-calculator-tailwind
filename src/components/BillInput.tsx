@@ -1,8 +1,12 @@
+import { useEffect } from "react";
 import { dollar } from "../assets";
 import { useTip } from "../context/TipContext";
 
 export const BillInput = () => {
-  const { bill, setBill } = useTip();
+  const { bill, setBill, calculateTip } = useTip();
+  useEffect(() => {
+    if (bill > 0) calculateTip();
+  }, [bill]);
   return (
     <div className="bill">
       <h2 className="title">bill</h2>
@@ -12,14 +16,12 @@ export const BillInput = () => {
       >
         <img src={dollar} alt="bill" className="object-contain" />
         <input
-          type="text"
-          inputMode="numeric"
-          pattern="[0-9]+\.+"
-          value={bill}
+          type="number"
+          value={bill === 0 ? "" : bill}
           placeholder="0"
           className="w-full bg-transparent text-very-dark-cyan text-2xl text-right outline-none sm:text-xl"
           onChange={(e) => {
-            setBill(Number(e.target.value));
+            setBill(parseFloat(e.target.value));
           }}
         />
       </div>
