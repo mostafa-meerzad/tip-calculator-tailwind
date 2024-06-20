@@ -27,14 +27,25 @@ body {
   @apply my-4 capitalize text-lg text-dark-grayish-cyan sm:text-sm;
 }
 
-.result-wrapper{
-  @apply flex justify-between flex-row  p-2
+.result-wrapper {
+  @apply flex justify-between flex-row  p-2;
 }
-.result-title{
-  @apply text-lg text-light-grayish-cyan sm:text-sm capitalize
+.result-title {
+  @apply text-lg text-light-grayish-cyan sm:text-sm capitalize;
 }
-.result-sub-title{
-  @apply text-dark-grayish-cyan sm:text-xs}
+.result-sub-title {
+  @apply text-dark-grayish-cyan sm:text-xs;
+}
 
-.result{
-  @apply text-strong-cyan text-4xl}
+.result {
+  @apply text-strong-cyan text-4xl flex-grow text-right ;
+}
+
+.no-spinner {
+  -moz-appearance: textfield;
+}
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
