@@ -29,7 +29,7 @@ export const BillInput = () => {
           value={bill === 0 ? "" : bill}
           placeholder="0"
           pattern="[0-9]+"
-          className="w-full bg-transparent text-very-dark-cyan text-2xl text-right outline-none sm:text-xl no-spinner"
+          className="w-full bg-transparent text-very-dark-cyan text-2xl text-right outline-none sm:text-xl"
           onChange={handleChange}
         />
       </div>

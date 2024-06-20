@@ -22,18 +22,18 @@ export const Results = () => {
   return (
     <div className=" bg-very-dark-cyan rounded-2xl p-8 flex flex-col  gap-3 w-full min-h-80">
       <div className="result-wrapper">
-
         <div>
           <h2 className="result-title">tip amount</h2>
           <p className=" result-sub-title">/ person</p>
         </div>
 
-        <h2 className={`result ${totalCost.length > 10 && "overflow-x-visible"}`}>
+        <h2
+          className={`result ${totalCost.length > 10 && "overflow-x-visible"}`}
+        >
           <animated.span>
             {animatedTipAmount.number.to((n) => `$${n.toFixed(2)}`)}
           </animated.span>
         </h2>
-
       </div>
 
       <div className="result-wrapper">
@@ -41,7 +41,9 @@ export const Results = () => {
           <h2 className="result-title">total</h2>
           <p className=" result-sub-title">/ person</p>
         </div>
-        <h2 className={`result ${totalCost.length > 10 && "overflow-x-visible"}`}>
+        <h2
+          className={`result ${totalCost.length > 10 && "overflow-x-visible"}`}
+        >
           <animated.span>
             {animatedTotalCost.number.to((n) => `$${n.toFixed(2)}`)}
           </animated.span>

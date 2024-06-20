@@ -40,12 +40,3 @@ body {
 .result {
   @apply text-strong-cyan text-4xl text-right max-w-44 overflow-y-hidden;
 }
-
-.no-spinner {
-  -moz-appearance: textfield;
-}
-.no-spinner::-webkit-outer-spin-button,
-.no-spinner::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
