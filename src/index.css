@@ -28,7 +28,7 @@ body {
 }
 
 .result-wrapper {
-  @apply flex justify-between flex-row  p-2;
+  @apply grid grid-flow-col justify-between p-2;
 }
 .result-title {
   @apply text-lg text-light-grayish-cyan sm:text-sm capitalize;
@@ -38,7 +38,7 @@ body {
 }
 
 .result {
-  @apply text-strong-cyan text-4xl flex-grow text-right ;
+  @apply text-strong-cyan text-4xl text-right max-w-44 overflow-y-hidden;
 }
 
 .no-spinner {

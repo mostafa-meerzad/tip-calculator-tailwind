@@ -7,7 +7,7 @@ import { TipProvider } from "./context/TipContext";
 
 const App = () => {
   return (
-    <main className="grid max-sm:w-screen justify-center gap-8 my-10 font-space-mono ">
+    <main className="grid max-sm:w-screen justify-center gap-8 my-10 font-space-mono max-w-3xl ">
       <h1 className=" text-center">
         <Title />
       </h1>
