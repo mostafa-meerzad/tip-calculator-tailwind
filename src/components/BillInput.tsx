@@ -5,6 +5,14 @@ import { useTip } from "../context/TipContext";
 export const BillInput = () => {
   const { bill, setBill, calculateTip } = useTip();
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseFloat(e.target.value);
+    if (!isNaN(value)) {
+      setBill(value);
+    } else {
+      setBill(0);
+    }
+  };
   useEffect(() => {
     if (bill > 0) calculateTip();
   }, [bill]);
@@ -17,12 +25,12 @@ export const BillInput = () => {
       >
         <img src={dollar} alt="bill" className="object-contain" />
         <input
-          type="number"
+          type="text"
           value={bill === 0 ? "" : bill}
           placeholder="0"
           pattern="[0-9]+"
           className="w-full bg-transparent text-very-dark-cyan text-2xl text-right outline-none sm:text-xl no-spinner"
-          onChange={(e) => setBill(parseFloat(e.target.value))}
+          onChange={handleChange}
         />
       </div>
     </div>
