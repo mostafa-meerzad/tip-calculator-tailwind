@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution](https://github.com/mostafa-meerzad/tip-calculator-tailwind.git)
+- Live Site URL: [netlify](https://6676a608120fca8fff0c8db7--charming-biscochitos-9d9963.netlify.app/)
 
 ## My process
 

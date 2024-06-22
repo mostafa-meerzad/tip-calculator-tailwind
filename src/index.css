@@ -38,5 +38,5 @@ body {
 }
 
 .result {
-  @apply text-strong-cyan text-4xl text-right max-w-44 overflow-y-hidden;
+  @apply text-strong-cyan text-4xl text-right max-w-60 md:max-w-48 overflow-y-hidden;
 }
