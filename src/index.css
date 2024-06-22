@@ -9,15 +9,34 @@ body {
   @apply bg-light-grayish-cyan;
 }
 
-.btn {
-  @apply w-20 m-2  border-white text-center 
-  rounded-[.2em] bg-very-dark-cyan hover:bg-strong-cyan text-white hover:text-very-dark-cyan;
+.btn,
+.customBtn {
+  @apply bg-very-dark-cyan text-very-light-grayish-cyan hover:bg-strong-cyan hover:text-very-dark-cyan text-2xl rounded-md p-3 font-bold sm:text-xl sm:p-2 focus:outline-strong-cyan focus:bg-strong-cyan;
+}
+.btn-active {
+  @apply bg-strong-cyan;
 }
 
-input.btn {
-  @apply text-very-dark-cyan bg-very-light-grayish-cyan placeholder:text-very-dark-cyan focus:outline-strong-cyan focus:hover:bg-white;
+.customBtn {
+  @apply placeholder-very-dark-cyan capitalize  bg-very-light-grayish-cyan text-right px-6 focus:bg-very-light-grayish-cyan 
+  text-very-dark-cyan
+  focus:outline-strong-cyan sm:text-xl sm:p-2;
 }
 
-.title{
-  @apply col-span-3 text-very-dark-cyan text-sm capitalize
+.title {
+  @apply my-4 capitalize text-lg text-dark-grayish-cyan sm:text-sm;
+}
+
+.result-wrapper {
+  @apply grid grid-flow-col justify-between p-2;
+}
+.result-title {
+  @apply text-lg text-light-grayish-cyan sm:text-sm capitalize;
+}
+.result-sub-title {
+  @apply text-dark-grayish-cyan sm:text-xs;
+}
+
+.result {
+  @apply text-strong-cyan text-4xl text-right max-w-44 overflow-y-hidden;
 }
