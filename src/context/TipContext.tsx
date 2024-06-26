@@ -1,8 +1,8 @@
 import React, { createContext, useState, ReactNode, useContext } from "react";
 
 interface TipContextProps {
-  tipAmount: string;
-  totalCost: string;
+  tipAmount: number;
+  totalCost: number;
   tip: number;
   people: number;
   bill: number;
@@ -18,8 +18,8 @@ const TipContext = createContext<TipContextProps | null>(null);
 export const TipProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [tipAmount, setTipAmount] = useState("0.00");
-  const [totalCost, setTotalCost] = useState("0.00");
+  const [tipAmount, setTipAmount] = useState(0);
+  const [totalCost, setTotalCost] = useState(0);
   const [tip, setTip] = useState(0);
   const [bill, setBill] = useState(0);
   const [people, setPeople] = useState(0);
@@ -30,13 +30,13 @@ export const TipProvider: React.FC<{ children: ReactNode }> = ({
     const tipPerPerson = tipAmount / people;
     const costPerPerson = (bill + tipAmount) / people;
 
-    setTipAmount(tipPerPerson.toFixed(2));
-    setTotalCost(costPerPerson.toFixed(2));
+    setTipAmount(Number(tipPerPerson.toFixed(2)));
+    setTotalCost(Number(costPerPerson.toFixed(2)));
   };
 
   const reset = () => {
-    setTipAmount("0.00");
-    setTotalCost("0.00");
+    setTipAmount(0);
+    setTotalCost(0);
     setTip(0);
     setBill(0);
     setPeople(0);

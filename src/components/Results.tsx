@@ -15,8 +15,8 @@ export const Results = () => {
   }));
 
   useEffect(() => {
-    apiTipAmount.start({ number: parseFloat(tipAmount) });
-    apiTotalCost.start({ number: parseFloat(totalCost) });
+    apiTipAmount.start({ number: tipAmount });
+    apiTotalCost.start({ number: totalCost });
   }, [tipAmount, totalCost, apiTipAmount, apiTotalCost]);
 
   return (
@@ -28,11 +28,17 @@ export const Results = () => {
         </div>
 
         <h2
-          className={`result ${totalCost.length > 10 && "overflow-x-visible"}`}
+          className={`result ${
+            String(totalCost).length > 10 && "overflow-x-visible"
+          }`}
         >
-          <animated.span>
-            {animatedTipAmount.number.to((n) => `$${n.toFixed(2)}`)}
-          </animated.span>
+          {tipAmount ? (
+            <animated.span>
+              {animatedTipAmount.number.to((n) => `$${n.toFixed(2)}`)}
+            </animated.span>
+          ) : (
+            <span>$0.00</span>
+          )}
         </h2>
       </div>
 
@@ -42,17 +48,23 @@ export const Results = () => {
           <p className=" result-sub-title">/ person</p>
         </div>
         <h2
-          className={`result ${totalCost.length > 10 && "overflow-x-visible"}`}
+          className={`result ${
+            String(totalCost).length > 10 && "overflow-x-visible"
+          }`}
         >
-          <animated.span>
-            {animatedTotalCost.number.to((n) => `$${n.toFixed(2)}`)}
-          </animated.span>
+          {totalCost ? (
+            <animated.span>
+              {animatedTotalCost.number.to((n) => `$${n.toFixed(2)}`)}
+            </animated.span>
+          ) : (
+            <span>$0.00</span>
+          )}
         </h2>
       </div>
 
       <button
         className={`uppercase text-xl w-full p-3   rounded-lg bg-strong-cyan text-very-dark-cyan hover:bg-light-grayish-cyan mt-auto 
-       ${totalCost === "0.00" && "opacity-25"}`}
+       ${totalCost === 0 && "opacity-25"}`}
         onClick={reset}
       >
         reset
